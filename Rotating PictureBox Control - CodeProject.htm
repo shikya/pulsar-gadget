@@ -1,0 +1,1424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0045)http://www.codeproject.com/KB/cpp/rimage.aspx -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Rotating PictureBox Control - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="./Rotating PictureBox Control - CodeProject_files/CodeProject.min.css">
+
+	
+
+<meta name="Description" content="A PictureBox control that lets you rotate images.; Author: Chris Kolkman; Section: C / C++ Language; Chapter: Languages">
+<meta name="Keywords" content=".NET1.1, Win2K, WinXP, VS.NET2003, VB, GDI+, Dev, Intermediate,C / C++ Language,Languages,Free source code, tutorials">
+<meta name="Author" content="The Code Project">
+<meta name="Rating" content="General">
+<meta name="Robots" content="index, follow">
+<meta name="Revisit-After" content="1 days">
+<meta name="google-site-verification" content="RP2bNCUeOmNkkJesEnU8X3UyTbqIcCKP0CmdwU8in5k">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All topics" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC / C++" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - ASP.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - .NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx">
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml">
+
+	<!--<base target="_top">--><base href="." target="_top">
+	<link rel="icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="apple-touch-icon" href="http://www.codeproject.com/images/FavIcon-Apple.png" type="image/png">
+<script type="text/javascript" language="Javascript">//<![CDATA[
+if(top!=self)top.location.href=location.href; if(typeof(DemoUrl)!="undefined")document.write(unescape('%3Cme')+'ta http'+'-equiv="re' +'fresh" con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+function SelfCheck(){ return window.confirm("You are about to reply to your own message. Is this really what you want?");}
+function MarkAns(MemberID,MsgID,gp,bp,mt,QID){
+ document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\"  onclick=\"RateMsg("+MemberID.toString()+","+MsgID.toString()+",6,"+QID.toString()+");\"%3E"));
+ document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/good.png\" alt=\"good\" border=\"0\" align=\"absmiddle\" /%3E "+gp+" "+mt+"%3C/a%3E "));
+ document.write(" &nbsp;"); document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\"  onclick=\"RateMsg("+MemberID.toString()+","+MsgID.toString()+",7,"+QID.toString()+");\"%3E"));
+ document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/bad.png\" alt=\"bad\" border=\"0\" align=\"absmiddle\" /%3E "+bp+" "+mt+"%3C/a%3E"));
+}
+
+function MsgVFrm(MemberID,MsgID,GB,gp,bp,mt){
+ if(!GB)document.write("Rate this message: ");
+ document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\" onclick=\"RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ","));document.write((GB?"5":"1")+unescape(",0);\"%3E"));
+ if(GB) document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/good.png\" alt=\"good\" border=\"0\" align=\"absmiddle\" /%3E "+gp+" "+mt+"%3C/a%3E "));
+ else document.write(unescape("%3Cimg height=\"14px\" width=\"14px\" src=\"http://s.codeproject.com/script/Forums/Images/thumbs_down.gif\" alt=\"vote 1\" border=\"0\" align=\"middle\" /%3E%3C/a%3E "));
+ if(GB)document.write(" &nbsp;"); else for(var i=1; i<=5;i++)
+  document.write(unescape("%3Ca class=\"toolbar\" href=\"#xx" + MsgID.toString() + "xx\" title=\"vote this message a " + i.toString() + "\" onclick=\"RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", " + i.toString() + ",0)\"%3E%3Cb%3E" + i.toString() + "%3C/b%3E%3C/a%3E "));
+ document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\" onclick=\"RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ","));document.write((GB?"1":"5")+unescape(",0);\"%3E"));
+ if(GB)document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/bad.png\" alt=\"bad\" border=\"0\" align=\"absmiddle\" /%3E "+bp+" "+mt+"%3C/a%3E"));
+ else document.write(unescape("%3Cimg height=\"14px\" width=\"14px\" src=\"http://s.codeproject.com/script/Forums/Images/thumbs_up.gif\" border=\"0\" alt=\"vote 5\" align=\"middle\" /%3E%3C/a%3E "));
+}
+
+function ReportMsg(userid, msgid, score) {
+ if (confirm("Are you sure you want this message removed?"))
+  return RateMsg(userid, msgid, score, 0);
+ else return false;
+}
+function RateMsg(memberid, msgid, score, questionId) {
+ var req = new XMLHttpRequest();
+ req.onreadystatechange = function() {
+  if (req.readyState == 4){
+   if (req.status == 200){
+    var respText = req.responseText;
+    var re = new RegExp(unescape("\%3Cdiv\%3E(.*)\%3C/div\%3E"), "g");
+    var match = re.exec(respText);
+    voteStatus.innerHTML = unescape("%3Cb%3E") + (match&&match.length>1&&match[1])?match[1]:"An error occured" + unescape("%3C/b%3E");
+   } else
+    voteStatus.innerHTML = unescape("%3Cb style='color:red'%3EFailed!") + req.statusText + unescape("%3C/b%3E");
+  }
+ }
+ var voteStatus = document.getElementById("MVF" + msgid);
+ if (!voteStatus) return;
+ voteStatus.innerHTML = unescape("%3Cb style='color:green'%3EVoting...%3C/b%3E");
+ var strAction = "/script/Forums/Vote.aspx?js=1&fmid="+memberid.toString()+"&select="+msgid.toString()+"&score="+score.toString()+"&qid="+questionId.toString();
+ req.open("GET", strAction, true);
+ req.send(null);
+  return false;
+}
+
+//]]>
+</script>
+
+</head>	
+
+<body>
+
+<a href="http://www.codeproject.com/KB/cpp/rimage.aspx#Main"><img alt="Click here to Skip to main content" class="access-link" src="./Rotating PictureBox Control - CodeProject_files/t.gif"></a>
+
+
+<div class="page-background">
+	<div id="A" class="container-content">
+
+		
+		
+
+		
+
+		
+		
+
+<div class="container nav-memberbar clearfix">
+<div class="member-stats float-left">7,574,016 members and growing! (28,658 online)</div>
+<div class="float-left"></div>
+<div class="float-right">
+<span id="ctl00_MemberMenu_CurRat" class="tooltip">
+		<a id="ctl00_MemberMenu_MyProfile" href="http://www.codeproject.com/script/Membership/View.aspx?mid=7705080">0x0005h121</a><img src="./Rotating PictureBox Control - CodeProject_files/arrow-down-16.png" style="width:16px;height:16px;vertical-align:bottom">
+		<div class="tooltip-flyout" style="width:110px !important">
+			<a id="ctl00_MemberMenu_SecureSettings" title="Use Secure connection" class="float-right align-middle" href="https://www.codeproject.com/script/Membership/Modify.aspx"><img title="Use Secure connection" src="./Rotating PictureBox Control - CodeProject_files/secure.png" alt="" style="border-width:0px;"></a>
+			<div><a id="ctl00_MemberMenu_MySettings" href="http://www.codeproject.com/script/Membership/Modify.aspx">My Settings</a></div>
+			<div><a id="ctl00_MemberMenu_MyContacts" href="http://www.codeproject.com/script/Membership/ListContacts.aspx">My Contact info</a></div>
+			<div><a id="ctl00_MemberMenu_MyBookmarks" href="http://www.codeproject.com/script/Bookmarks/List.aspx?obtid=2">My Bookmarks</a></div>
+			
+			<div><a id="ctl00_MemberMenu_MyCodeProject" href="http://www.codeproject.com/script/Membership/MyCodeProject.aspx">My Watched Items</a></div>
+			<div><a id="ctl00_MemberMenu_MyArticles" href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=7705080">My Articles</a></div>
+			<div><a id="ctl00_MemberMenu_MyMessages" href="http://www.codeproject.com/script/Forums/Messages.aspx?fmid=7705080">My Messages</a></div>
+			<div><a id="ctl00_MemberMenu_MyQuestions" href="http://www.codeproject.com/script/Answers/MemberPosts.aspx?tab=questions&mid=7705080&showall=True">My Questions</a></div>
+			<div><a id="ctl00_MemberMenu_MyAnswers" href="http://www.codeproject.com/script/Answers/MemberPosts.aspx?tab=answers&mid=7705080&showall=True">My Answers</a></div>
+			
+		</div>
+	</span><a id="ctl00_MemberMenu_Signout" href="http://www.codeproject.com/script/Membership/LogOff.aspx?rp=%2fKB%2fcpp%2frimage.aspx">Sign out</a>
+
+
+</div>
+
+</div>
+		
+
+		
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody><tr>
+			<td class="header"><a href="http://www.codeproject.com/"><img id="ctl00_Logo" title="The Code Project" src="./Rotating PictureBox Control - CodeProject_files/logo225x90.gif" alt="Home" style="border-width:0px;"></a></td>
+			<td class="header" align="right">
+				<div class="lqm_ad" width="728px" height="90px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="8" lqm_tags=".NET1.1,Win2K,WinXP,VS.NET2003,VB,GDI+,Dev,Intermediate"></div>
+			</td>
+		</tr></tbody></table>
+
+		<table cellpadding="0" cellspacing="0" class="contrast1-background extended"><tbody><tr><td nowrap="nowrap">
+			
+
+<div class="navbar clearfix">
+<ul id="nav">
+
+<li><a id="ctl00_TopNavBar_Home" class="down" href="http://www.codeproject.com/">Home</a>
+
+</li><li><a id="ctl00_TopNavBar_Art" class="down selected" href="http://www.codeproject.com/script/Articles/Latest.aspx">Articles</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_ArtTopicList" class="fly last" onmouseover="PopulateMap(this, &#39;siteMap&#39;, &#39;600px&#39;);" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Chapters and Sections</a><ul id="ctl00_TopNavBar_MapFlyout"><li>
+				<div id="siteMap" style="height:0px;width:0px;border:1px solid green;background-color:white;overflow:scroll">
+					<img src="./Rotating PictureBox Control - CodeProject_files/animated.gif" style="margin:150px;width:100px;height:100px;">
+				</div>
+			</li></ul>
+		</li>
+		<li><a id="ctl00_TopNavBar_ArtSearch" class="fly break" href="http://www.codeproject.com/info/search.aspx">Search</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestArts" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx">Latest Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestTips" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx?at=6">Latest Tips/Tricks</a></li>
+		<li><a id="ctl00_TopNavBar_ArtTop" class="fly" href="http://www.codeproject.com/script/Articles/TopArticles.aspx?ta_so=4">Top Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBeginner" class="fly" href="http://www.codeproject.com/info/search.aspx?aidlst=152&sa_us=True">Beginner Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBlogArticles" class="fly break" href="http://www.codeproject.com/script/Articles/BlogArticleList.aspx">Technical Blogs</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostArticle" class="fly" href="http://www.codeproject.com/script/Articles/Submit.aspx">Post an Article</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostTipTrick" class="fly" href="http://www.codeproject.com/Tips/post.aspx">Post Tip &amp; Trick</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostBlog" class="fly break" href="http://www.codeproject.com/script/Articles/BlogFeed.aspx">Post your Blog</a></li>
+		<li><a id="ctl00_TopNavBar_ArtGuide" class="fly" href="http://www.codeproject.com/info/Submit.aspx">Posting/Update Guidelines</a></li>
+		<li><a id="ctl00_TopNavBar_ArtCompetition" class="fly last" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1">Article Competition</a></li>
+	</ul>
+
+</li>
+
+
+
+<li><a id="ctl00_TopNavBar_Answers" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">Questions &amp; Answers</a>
+	<ul>
+		<li id="ctl00_TopNavBar_AQL"><a id="ctl00_TopNavBar_ArticleQuestion" class="fly highlight" href="http://www.codeproject.com/KB/cpp/rimage.aspx#_comments">Ask a Question about this article</a></li>
+
+		<li class="heading">Quick Answers</li>
+		<li><a id="ctl00_TopNavBar_QAAsk" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Ask a Question</a></li>
+		
+		
+		<li><a id="ctl00_TopNavBar_QAUnanswered" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=unanswered">View Unanswered Questions</a></li>
+		<li><a id="ctl00_TopNavBar_QALatest" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">View All Questions...</a></li>
+		
+				<li><a id="ctl00_TopNavBar_QATR_ctl00_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=81" style="padding-left:30px">C# questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl01_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=85" style="padding-left:30px">ASP.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl02_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=842" style="padding-left:30px">VB.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl03_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=78" style="padding-left:30px">C++ questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl04_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=69" style="padding-left:30px">C#3.0 questions</a></li>
+			
+		<li class="heading">Programming Discussions</li>
+		<li><a id="ctl00_TopNavBar_MessageBoardsAll" class="fly" href="http://www.codeproject.com/script/Forums/List.aspx">All Message Boards...</a></li>
+		<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1580997/Application-Lifecycle.aspx">Application Lifecycle<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/369270/Design-and-Architecture.aspx">Design and Architecture</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533717/Running-a-Business.aspx">Running a Business</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533716/Sales-Marketing.aspx">Sales / Marketing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1651/Collaboration-Beta-Testing.aspx">Collaboration / Beta Testing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3304/Work-Training-Issues.aspx">Work &amp; Training Issues</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1647/C-Cplusplus-MFC.aspx">C / C++ / MFC<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/4486/ATL-WTL-STL.aspx">ATL /  WTL / STL</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3785/Managed-Cplusplus-CLI.aspx">Managed C++/CLI</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1649/Csharp.aspx">C#</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1725/Database.aspx">Database</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/186301/Hardware-Devices.aspx">Hardware &amp; Devices<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/1644/System-Admin.aspx">System Admin</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1606152/Hosting-and-Servers.aspx">Hosting and Servers</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1643/Java.aspx">Java</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1650/NET-Framework.aspx">.NET Framework</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/13695/Mobile.aspx">Mobile</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1540733/Sharepoint.aspx">Sharepoint</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1004257/Silverlight-WPF.aspx">Silverlight / WPF</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1646/Visual-Basic.aspx">Visual Basic</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1640/Web-Development.aspx">Web Development<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/12076/ASP-NET.aspx">ASP.NET</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1580227/CSS.aspx">CSS</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1580226/Javascript.aspx">Javascript</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1213656/PHP.aspx">PHP</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Site Bugs / Suggestions</a>
+</li>
+
+
+		<li class="heading">Other Languages<span class="fly-menu">&gt;</span>
+		<ul>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580229/Hindi.aspx">General Indian Topics</a></li>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580230/Chinese.aspx">General Chinese Topics</a></li>
+		</ul></li>
+	
+	</ul>
+
+</li>
+
+
+<li><a id="ctl00_TopNavBar_Zones" href="http://www.codeproject.com/Zones/index.aspx">Learning Zones</a>
+
+	<ul>
+		<!--<li class="heading">Zones</li>-->
+		<li><a href="http://www.codeproject.com/Zones/Commerce/" class="fly">The Commerce Zone</a></li><li><a href="http://www.codeproject.com/Zones/Cloud/" class="fly">The Cloud Zone</a></li><li><a href="http://www.codeproject.com/Zones/Parallelism/" class="fly">The Parallelism Zone</a></li><li><a href="http://www.codeproject.com/Zones/WPF-Silverlight/" class="fly">The WPF / Silverlight Zone</a></li><li><a href="http://www.codeproject.com/Zones/dotnet/" class="fly">The .NET Zone</a></li><li><a href="http://www.codeproject.com/Zones/SqlServer/" class="fly">The SQL Zone</a></li><li><a href="http://www.codeproject.com/Zones/WhitePapers/" class="fly break">WhitePapers / Webcasts</a></li>
+		<li><a id="ctl00_TopNavBar_Solutions" class="fly last" href="http://www.codeproject.com/kb/Solution-Center/">Solutions Center</a></li>
+	</ul>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+<li><a id="ctl00_TopNavBar_Features" href="http://www.codeproject.com/Feature/">Features</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_WhosWho" class="fly" href="http://www.codeproject.com/script/Membership/Profiles.aspx">Who's Who</a></li>
+		<li><a id="ctl00_TopNavBar_MVPs" class="fly" href="http://www.codeproject.com/script/Awards/MVPWinners.aspx">CodeProject MVPs</a></li>
+		<li><a id="ctl00_TopNavBar_Companies" class="fly break" href="http://www.codeproject.com/script/Membership/Profiles.aspx?mgtid=1&mgm=True">Company Listings</a></li>
+		<li><a id="ctl00_TopNavBar_Catalog" class="fly" href="http://www.codeproject.com/script/Catalog/List.aspx">Component &amp; Service Catalog</a></li>
+		<li><a id="ctl00_TopNavBar_Comps" class="fly" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1&awsac=true">Competitions</a></li>
+		<li><a id="ctl00_TopNavBar_News" class="fly" href="http://www.codeproject.com/script/News/List.aspx">News</a></li>
+		<li><a id="ctl00_TopNavBar_Insider" class="fly" href="http://www.codeproject.com/Feature/Insider/">Daily Insider</a></li>
+		<li><a id="ctl00_TopNavBar_Newsletters" class="fly" href="http://www.codeproject.com/script/Mailouts/Archive.aspx?mtpid=1">Newsletter archive</a></li>
+		<li><a id="ctl00_TopNavBar_PressRelease" class="fly" href="http://www.codeproject.com/script/PressReleases/Preview.aspx">Press Releases</a></li>
+		<li><a id="ctl00_TopNavBar_Surveys" class="fly" href="http://www.codeproject.com/script/Surveys/List.aspx">Surveys</a></li>
+		<li><a id="ctl00_TopNavBar_Stuff" class="fly" href="http://www.codeproject.com/Info/Stuff.aspx">CodeProject Stuff</a></li>
+		<li><a id="ctl00_TopNavBar_AddIn" class="fly last" href="http://www.codeproject.com/Services/Addins/">CodeProject VS Addin </a></li>
+	</ul>
+
+</li>
+
+
+<li><a id="ctl00_TopNavBar_Help" href="http://www.codeproject.com/KB/FAQs/">Help!</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_HelpWhatIs" class="fly" href="http://www.codeproject.com/info/guide.aspx">What is 'The Code Project'?</a></li>
+		<li><a id="ctl00_TopNavBar_HelpGeneral" class="fly" href="http://www.codeproject.com/KB/FAQs/">General FAQ</a></li>
+		<li><a id="ctl00_TopNavBar_HelpPostQuestion" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Post a Question</a></li>
+		<li><a id="ctl00_TopNavBar_HelpBugs" class="fly" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Bugs and Suggestions</a></li>
+		<li><a id="ctl00_TopNavBar_HelpSiteMap" class="fly" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Site Directory</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAdvertise" class="fly" href="http://www.codeproject.com/info/MediaKit.aspx">Advertise with us</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAboutUs" class="fly last" href="http://www.codeproject.com/info/about.aspx">About Us</a></li>
+	</ul>
+
+</li>
+
+
+<li style="margin-left:10px">
+<a id="ctl00_TopNavBar_Lounge" class="simple" href="http://www.codeproject.com/Lounge.aspx">The Lounge</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_LoungeLnk" class="fly" href="http://www.codeproject.com/Lounge.aspx">The Lounge &nbsp;</a></li>
+		<li><a id="ctl00_TopNavBar_CleverLnk" class="fly" href="http://www.codeproject.com/feature/CleverCode.aspx">Clever Code</a></li>
+		<li><a id="ctl00_TopNavBar_ShameLnk" class="fly" href="http://www.codeproject.com/feature/HallOfSHame.aspx">Hall of Shame</a></li>
+		<li><a id="ctl00_TopNavBar_SoapBoxLnk" class="fly" href="http://www.codeproject.com/Forums/1536756/The-Soapbox-2-0.aspx">The Soapbox</a></li>
+		
+	</ul>
+
+</li>
+
+</ul>
+
+</div>
+
+<script type="text/javascript">
+function PopulateMap(prnt, elmId, width, height) {
+	var map;
+	if (!prnt.populated && !prnt.populating) {
+		prnt.populating = true;
+		map = $('#' + elmId);
+		map.css('height', '400px');
+		map.css('width', '400px');
+		map.load("/script/content/ajax/SiteMap.aspx", function () {
+			if (height) map.css('height', height); else map.css('height', 'auto');
+			prnt.populated = true;
+		});
+		prnt.populating = false;
+	}
+	if (prnt.populated) {
+		map = map||$('#' + elmId);
+		var defWidth = ($(window).width() * 0.9);
+		if (defWidth > 1000) defWidth = 1000;
+		if (width) map.css('width', width); else map.css('width', defWidth+'px');
+	}
+}
+</script>
+		</td><td align="right">
+			
+
+<div class="search-bar">
+
+<form method="get" action="http://www.codeproject.com/info/search.aspx" name="Search" class="tight">
+
+
+<input class="search " id="sb_tb" value="" name="artkw">
+
+<div class="hover-container">
+	<div id="SearchFilter" class="search-advanced popup small-text align-left">
+	<b>Search within:<br></b>
+		
+		<input type="radio" id="sb_kw" name="sbo" value="kw" checked="true"><label for="sb_kw">Articles</label><br>
+<input type="radio" id="sb_qa" name="sbo" value="qa"><label for="sb_qa">Quick Answers</label><br>
+<input type="radio" id="sb_fm" name="sbo" value="fm"><label for="sb_fm">Messages</label><br>
+<input type="radio" id="sb_ctlk" name="sbo" value="ctlk"><label for="sb_ctlk">Product Catalog</label><br>
+
+
+		
+		
+	</div>
+</div>
+</form>
+
+</div>
+		</td></tr></tbody></table>
+		
+
+		
+		<div class="container-article">
+		
+			
+			<div class="container-header">
+				<div id="ctl00_Header" class="header">
+
+					<a name="Main"></a>
+
+					
+					<a name="_top"></a>
+					
+
+<div class="clearfix hover-container">
+
+	<div class="container">
+		
+		<div class="breadcrumb float-left"><a href="http://www.codeproject.com/script/Content/SiteMap.aspx"><span class="sitemap-anchor" onmouseover="PopulateMap(this,&#39;map&#39;);"><img width="16px" height="16px" src="./Rotating PictureBox Control - CodeProject_files/sitemap16.png" border="0" alt="Site map" style="vertical-align:middle"><div id="map"><img src="./Rotating PictureBox Control - CodeProject_files/animated.gif" style="margin:150px;width:100px;height:100px;border:0;"></div></span></a> » <a href="http://www.codeproject.com/Chapters/5/Languages.aspx">Languages</a> » <a href="http://www.codeproject.com/KB/cpp/">C / C++ Language</a> » <a href="http://www.codeproject.com/KB/cpp/#General">General</a></div>
+
+		<div class="float-right">
+			
+			<a id="ctl00_TitleArea_PageWidth_Fixed" title="Fixed width layout" class=" active" href="http://www.codeproject.com/KB/cpp/rimage.aspx?PageFlow=FixedWidth"><img class="toolbar" src="./Rotating PictureBox Control - CodeProject_files/fixed-width.png" style="width:18px;height:18px"></a>
+
+<a id="ctl00_TitleArea_PageWidth_Fluid" title="Fluid layout" href="http://www.codeproject.com/KB/cpp/rimage.aspx?PageFlow=Fluid"><img class="toolbar" src="./Rotating PictureBox Control - CodeProject_files/fluid-width.png" style="width:18px;height:18px"></a>
+		</div>
+	</div>
+
+	
+	<div id="ctl00_TitleArea_InfoArea" class="float-right">
+		
+
+<div class="infobox">
+	<table class="tight small-text" cellpadding="0" cellspacing="1">
+	<tbody><tr><td>Licence&nbsp;</td><td></td></tr>
+	
+	<tr><td>First Posted&nbsp;</td><td nowrap="nowrap"><b>26 Apr 2005</b></td></tr>
+	<tr><td>Views&nbsp;</td><td><b>87,550</b></td></tr>
+		
+	
+	<tr><td>Bookmarked&nbsp;</td><td><b>20 times</b></td></tr>
+	
+
+	
+	
+	</tbody></table>
+</div>	
+	</div>
+
+	
+	<h1 id="ctl00_TitleArea_ArticleTitle">Rotating PictureBox Control</h1>
+
+	
+	<div class="author">
+		By <b><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1282106">Chris Kolkman</a></b> | 
+		29 Jul 2005 
+		
+
+		
+		
+	</div>
+	
+	<div class="tags">
+	<span id="ctl00_TitleArea_TagsList_TagWrp" class="tags">
+	
+	
+	
+	<span id="ctl00_TitleArea_TagsList_VisibleTags"><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=11">.NET1.1</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=23">Win2K</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=24">WinXP</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=38">VS.NET2003</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=83">VB</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=112">GDI+</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=118">Dev</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=153">Intermediate</a></span></span> 
+
+	
+	
+</span>
+
+	</div>
+
+	
+	<div class="abstract"><span id="ctl00_TitleArea_ArticleDescr">A PictureBox control that lets you rotate images.</span></div>
+</div>
+
+
+
+					
+
+				</div>
+
+				<div id="ctl00_HeadSide" class="header-sidebar">
+					<div class="align-left" style="height:24px">
+						
+
+
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+					</div>
+
+					
+
+<div class="bold pad-top">See Also</div>
+<ul class="outdent small-text" style="margin-left:5px">
+	<li><a id="ctl00_SeeAlso_LikeThis" href="http://www.codeproject.com/info/search.aspx?artkw=Rotating+PictureBox+Control">Articles like this</a></li>
+	<li><a id="ctl00_SeeAlso_ByAuthor" href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=1282106">Articles by this author</a></li>
+</ul>
+
+				</div>
+
+			</div>
+			
+
+			
+			<div id="ctl00_Nav" class="container-nav">
+				<div id="ctl00_TabContainer" class="tabs container">
+
+					
+					<div class="float-right action-links"> 
+						<a id="ctl00_ActionLinks_PrintLnk" class="tooltip" href="http://www.codeproject.com/KB/cpp/rimage.aspx?display=Print">
+	<img src="./Rotating PictureBox Control - CodeProject_files/print.gif" width="24px" height="24px" style="vertical-align:middle;border:0">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Print Article</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+
+<span id="SBI"><img src="./Rotating PictureBox Control - CodeProject_files/share_drop24.png" id="ctl00_ActionLinks_AddTo_Img" width="37" height="24" alt="add" style="vertical-align:bottom">
+</span>
+<div id="ATD" class="list-socialbookmark"></div> 
+ 
+
+<span class="tooltip">
+	<a id="ctl00_ActionLinks_ArticleBmk_ImgBt" title="Bookmark" alternatetext="Bookmark" name="bm_10216_2" onclick="return bookmarkMe(10216,2,&#39;/script/Bookmarks/Ajax/Add.aspx?obid=10216&amp;obtid=2&amp;action=AddBookmark&amp;bio=true&#39;,true);" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=10216&obtid=2&action=AddBookmark&bio=true" style="display:inline-block;height:24px;width:24px;vertical-align:middle;border:0"><img title="Bookmark" src="./Rotating PictureBox Control - CodeProject_files/bookmark.png" alt="" style="border-width:0px;"></a>
+
+
+<span id="ctl00_ActionLinks_ArticleBmk_StatusMsg" class="tiny-text" style="display:none" name="bm_10216_2"></span>
+ 
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Add to your CodeProject bookmarks</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</span>
+
+<a href="http://www.codeproject.com/KB/cpp/rimage.aspx#_comments" class="tooltip">
+	
+	<img src="./Rotating PictureBox Control - CodeProject_files/discuss.gif" width="24px" height="24px" alt="Discuss" style="vertical-align:middle;border:0">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Discuss this article</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+<span id="ctl00_ActionLinks_cmtcnt" class="subdue small-text align-middle" style="margin-left:-4px">28</span>
+
+<a id="ctl00_ActionLinks_BrokenLnk" class="tooltip" href="http://www.codeproject.com/script/Articles/Report.aspx?aid=10216">
+	<img src="./Rotating PictureBox Control - CodeProject_files/report.gif" width="24px" height="24px" alt="Broken Article?" style="vertical-align:middle;border:0">
+	<div class="speech-bubble-container-up" style="width:140px">
+		<div class="speech-bubble-up">Report this article as inappropriate</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+					</div>
+
+					<div class="float-left">
+						
+						
+
+<div class="float-left"><table cellpadding="0" cellspacing="0"><tbody><tr>
+	<td class="tab-selected">Article</td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=10216">Browse Code</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/Statistics.aspx?aid=10216">Stats</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ListVersions.aspx?aid=10216">Revisions</a></td>
+</tr></tbody></table></div>	
+
+
+						
+						<div class="float-left" style="margin-left:15px">
+							<div id="ctl00_CurRat" class="tooltip" name="CurRat_10216">
+								
+<table cellpadding="0" cellspacing="0" class="small-text">
+<tbody><tr>
+	
+	<td class="nowrap">
+		<div style="height:24px;width:120px;position:relative;">
+	<table border="0" cellpadding="0" cellspacing="0" class="rating-bar-stars">
+		<tbody><tr>
+			<td width="83px" height="24px" class="filled"></td>
+			<td width="37px" height="24px"></td>
+		</tr>
+	</tbody></table>
+	<img src="./Rotating PictureBox Control - CodeProject_files/stars_orange.gif" style="position:absolute;top:0;left:0;z-index:10;" width="120" height="24">
+</div>
+
+		
+	</td>
+	
+	<td id="ctl00_ArticleRating_VR" class="nowrap">
+		&nbsp;<span id="ctl00_ArticleRating_VotesR">&nbsp;3.46 (10 votes)</span>
+		
+	</td>
+
+</tr>
+
+</tbody></table>
+
+								<div id="ctl00_RB" class="speech-bubble-container-up">
+									<div class="speech-bubble-up" style="width:150px !important">
+										            
+<div>
+<table class="feature" title="Voting Distribution. Recent data only" cellpadding="0" cellspacing="0"><tbody><tr><td class="chart-column"><img src="./Rotating PictureBox Control - CodeProject_files/pollcol.gif" width="16px" height="37px" border="0px" alt="3 votes, 30.0%" title="3 votes, 30.0%"><br><span title="3 votes">1</span></td>
+<td class="chart-column"><img src="./Rotating PictureBox Control - CodeProject_files/pollcol.gif" width="16px" height="12px" border="0px" alt="1 vote, 10.0%" title="1 vote, 10.0%"><br><span title="1 vote">2</span></td>
+<td class="chart-column"><img src="./Rotating PictureBox Control - CodeProject_files/t.gif" width="16px" height="1px" border="0px" alt="" title=""><br><span title="0 votes">3</span></td>
+<td class="chart-column"><img src="./Rotating PictureBox Control - CodeProject_files/pollcol.gif" width="16px" height="25px" border="0px" alt="2 votes, 20.0%" title="2 votes, 20.0%"><br><span title="2 votes">4</span></td>
+<td class="chart-column"><img src="./Rotating PictureBox Control - CodeProject_files/pollcol.gif" width="16px" height="50px" border="0px" alt="4 votes, 40.0%" title="4 votes, 40.0%"><br><span title="4 votes">5</span></td>
+</tr></tbody></table>
+</div>
+
+
+
+
+									</div>
+									<div class="speech-bubble-pointer-up">
+										<div class="speech-bubble-pointer-up-inner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div id="ctl00_HeadSideFoot" class="tabs-sidebar">
+					<div>Sponsored Links</div>
+				</div>
+			</div>
+			
+
+			
+			<div class="container-text">
+
+				<div id="AT" class="text">
+					
+					
+					
+					
+
+								
+			
+					<div id="ctl00_confirmError" class="Callout small-text" style="padding:10px;margin:20px;"><img style="float:left;margin-right:10px" src="./Rotating PictureBox Control - CodeProject_files/warning_32.png" width="32px" height="32px"><b>Is your email address OK?</b>
+					You are signed up for our newsletters but your email address is either unconfirmed, or has not 
+					been reconfirmed in a long time. Please click 
+					<a id="ctl00_RequestConfirmLink2" href="http://www.codeproject.com/script/Membership/SendConfirmRequest.aspx?rp=%2fKB%2fcpp%2frimage.aspx">here</a> to have a 
+					confirmation email sent so we can confirm your email address and start sending you newsletters 
+					again. Alternatively, you can 
+					<a id="ctl00_SubscribeLink2" href="http://www.codeproject.com/script/Membership/Subscribe.aspx?rp=%2fKB%2fcpp%2frimage.aspx">update your subscriptions</a>.</div><form name="aspnetForm" method="post" action="./Rotating PictureBox Control - CodeProject_files/Rotating PictureBox Control - CodeProject.htm" id="aspnetForm" style="margin:0;padding:0">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTAyMTMzODg1Ng9kFgJmD2QWAgIED2QWCAIRD2QWAgIBD2QWBmYPDxYCHgtOYXZpZ2F0ZVVybAUyL3NjcmlwdC9BcnRpY2xlcy9BZG1pbi9FZGl0b3JDaG9pY2UuYXNweD9haWQ9MTAyMTZkZAICDw8WAh8ABTgvc2NyaXB0L0F3YXJkcy9BZG1pbi9Bd2FyZE9iamVjdC5hc3B4P29iaWQ9MTAyMTYmb2J0aWQ9MmRkAgoPDxYCHwAFLy9zY3JpcHQvQXJ0aWNsZXMvQWRtaW4vUXVldWVFZGl0LmFzcHg/YWlkPTEwMjE2ZGQCEw9kFgICAQ9kFgICAQ9kFgZmDw8WAh8ABSEvS0IvY3BwL3JpbWFnZS5hc3B4P2Rpc3BsYXk9UHJpbnRkZAIEDxYCHglpbm5lcmh0bWwFAjI4ZAIFDw8WAh8ABSYvc2NyaXB0L0FydGljbGVzL1JlcG9ydC5hc3B4P2FpZD0xMDIxNmRkAhUPZBYCAgkPZBYKAgIPFgIeB1Zpc2libGVnFgQCAQ8PFgIfAAVHL3NjcmlwdC9NZW1iZXJzaGlwL1NlbmRDb25maXJtUmVxdWVzdC5hc3B4P3JwPSUyZktCJTJmY3BwJTJmcmltYWdlLmFzcHhkZAIDDw8WAh8ABT4vc2NyaXB0L01lbWJlcnNoaXAvU3Vic2NyaWJlLmFzcHg/cnA9JTJmS0IlMmZjcHAlMmZyaW1hZ2UuYXNweGRkAgMPFgIeBmFjdGlvbgUTL0tCL2NwcC9yaW1hZ2UuYXNweBYEAgMPZBYCAgIPZBYCAgEPEGRkFgBkAgkPFgIeC18hSXRlbUNvdW50AgFkAgsPDxYCHwAFEy9LQi9jcHAvcmltYWdlLmFzcHhkZAITDxYCHgRUZXh0BQsyOSBKdWwgMjAwNWQCFw8WAh8FBR9Db3B5cmlnaHQgMjAwNSBieSBDaHJpcyBLb2xrbWFuZAIXD2QWAgIFDw8WAh8CaGRkZEO9XjEXfa+GRDZR3iam7SdK2Xlk">
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCAK6sZOEDwLAlMXDBwLBlMXDBwLClMXDBwLDlMXDBwLElMXDBwLP+++tCwK5upDkCwQ3T2yFZoOIN73cRUmv7AC9mFmH">
+</div>
+
+						<!-- Article Text Start -->
+						<div id="contentdiv">
+						
+
+<!-- Article Starts -->
+
+<ul class="download">
+<li><a href="http://www.codeproject.com/KB/cpp/rimage/rimage_src.zip">Download source files - 10 Kb</a> 
+</li><li><a href="http://www.codeproject.com/KB/cpp/rimage/rimage_demo.zip">Download demo project - 39.1 Kb</a> </li></ul>
+<p><img height="300" alt="Sample Image - rimage.jpg" src="./Rotating PictureBox Control - CodeProject_files/rimage.jpg" width="300"></p>
+<h2>Introduction</h2>
+<p>How many times have you wanted to rotate an image in a <code>PictureBox</code> control? I know I've wanted to do it on many occasions.</p>
+<p>This control makes it simple to rotate your images. Referencing it is easy in code - the namespace is <code>System.Windows.Forms</code> so you can easily declare one as <code>RImage</code>.</p>
+<h2>Properties/Methods</h2>
+<p>This control inherits everything so any property/method a <code>PictureBox</code> has, this control will have as well - however, there are several properties that will allow you other options that were built into the control.</p>
+<ul class="property">
+<li><code lang="vbnet"><span class="code-keyword">Public</span> <span class="code-keyword">Property</span> ShowThrough() <span class="code-keyword">As</span> <span class="code-keyword">Boolean</span></code> 
+</li><li><code lang="vbnet"><span class="code-keyword">Public</span> <span class="code-keyword">Property</span> Direction() <span class="code-keyword">As</span> DirectionEnum</code> 
+</li><li><code lang="vbnet"><span class="code-keyword">Public</span> <span class="code-keyword">Property</span> Rotation() <span class="code-keyword">As</span> <span class="code-keyword">Integer</span></code> 
+</li><li><code lang="vbnet"><span class="code-keyword">Public</span> <span class="code-keyword">Property</span> TransparentColor() <span class="code-keyword">As</span> Color</code> </li></ul>
+<p><code>ShowThrough</code> will determine whether or not space not used by the image will be transparent and show the control below it. This is accomplished using regions.</p>
+<p><code>Direction</code> as you notice is declared as <code>DirectionEnum</code>. This enumeration was created for the control. It tells the control which way to rotate the image: <code>Clockwise</code>, or <code>Counter_Clockwise</code>.</p>
+<p><code>Rotation</code> is the angle of rotation of the image. It is in degrees. The range is 0 to 359; however, inputting a number outside of the range will scale it to the appropriate angle that is in the range.</p>
+<p><code>TransparentColor</code> will allow you to set a transparent color for the image. The demo project has an image included with a Lime background. If the <code>TransparentColor</code> property is set to Lime - that color in the image will be painted transparent. Unfortunately, it doesn't show the controls below it through, just the parent's background color.</p>
+<h2>Adding the Control</h2>
+<p>Right-click on an empty area of your toolbox and choose <i>Add/Remove Items</i>. At the dialog screen on the <i>.NET Framework Components</i> tab, choose <i>Browse</i> and navigate to the DLL file. Once you've done this, hit <i>OK</i>.</p>
+<p>You've now added the control to the toolbox.</p>
+<h2>Using the Control</h2>
+<p>Using the control is simple. It works almost exactly like the <code>PictureBox</code> control. Add one to your form, and give it an image. Once it has an image, <code>ShowThrough</code> will start working (if there is no image, <code>OnPaint</code> quits before it can set the transparent region) if it is set.</p>
+<p>Now just set your <code>Direction</code> from the drop-down box in the Properties window and enter an angle for your <code>Rotation</code>.</p>
+<p>If you'd like to set a transparent color for your image - you can do that with <code>TransparentColor</code> in the Properties window.</p>
+<h2>How it works</h2>
+<p>All of the rotation is handled in the <code>OnPaint</code> event. I start by getting the current corners of the image.</p><pre lang="vbnet"><span class="code-keyword">Dim</span> bm_in <span class="code-keyword">As</span> <span class="code-keyword">New</span> Bitmap(<span class="code-keyword">MyBase</span>.Image)
+
+<span class="code-keyword">Dim</span> wid <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = bm_in.Width
+<span class="code-keyword">Dim</span> hgt <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = bm_in.Height
+
+<span class="code-keyword">Dim</span> corners <span class="code-keyword">As</span> Point() = { _
+    <span class="code-keyword">New</span> Point(0, <span class="code-digit">0</span>), _
+    <span class="code-keyword">New</span> Point(wid, <span class="code-digit">0</span>), _
+    <span class="code-keyword">New</span> Point(0, hgt), _
+    <span class="code-keyword">New</span> Point(wid, hgt)}</pre>
+<p>Next I grab the center of the image - the point we want to rotate around - and subtract from each of the corners.</p><pre lang="vbnet"><span class="code-keyword">Dim</span> cx <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = wid / <span class="code-digit">2</span>
+<span class="code-keyword">Dim</span> cy <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = hgt / <span class="code-digit">2</span>
+<span class="code-keyword">Dim</span> i <span class="code-keyword">As</span> <span class="code-keyword">Long</span>
+
+<span class="code-keyword">For</span> i = <span class="code-digit">0</span> <span class="code-keyword">To</span> <span class="code-digit">3</span>
+    corners(i).X -= cx
+    corners(i).Y -= cy
+<span class="code-keyword">Next</span></pre>
+<p>Now we need to get the Sine of theta, and the Cosine of theta - which means we need theta.</p><pre lang="vbnet"><span class="code-keyword">Dim</span> theta <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = <span class="code-keyword">CSng</span>((_degree) * _direction) * PI / <span class="code-digit">180</span>
+<span class="code-keyword">Dim</span> sin_theta <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = Sin(theta)
+<span class="code-keyword">Dim</span> cos_theta <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = Cos(theta)</pre>
+<p>Here is where the magic comes in, we need to apply the rotation formulas to all the corners.</p><pre lang="vbnet"><span class="code-keyword">Dim</span> X <span class="code-keyword">As</span> <span class="code-keyword">Single</span>
+<span class="code-keyword">Dim</span> Y <span class="code-keyword">As</span> <span class="code-keyword">Single</span>
+
+<span class="code-keyword">For</span> i = <span class="code-digit">0</span> <span class="code-keyword">To</span> <span class="code-digit">3</span>
+    X = corners(i).X
+    Y = corners(i).Y
+    corners(i).X = (X * cos_theta) - (Y * sin_theta)
+    corners(i).Y = (Y * cos_theta) + (X * sin_theta)
+<span class="code-keyword">Next</span></pre>
+<p>OK, we've got the rotated corners, let's fix the offset we created when finding the rotation point, and for that we'll need the minimum x and y values.</p><pre lang="vbnet"><span class="code-keyword">Dim</span> xmin <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = corners(<span class="code-digit">0</span>).X
+<span class="code-keyword">Dim</span> ymin <span class="code-keyword">As</span> <span class="code-keyword">Single</span> = corners(<span class="code-digit">0</span>).Y
+
+<span class="code-keyword">For</span> i = <span class="code-digit">1</span> <span class="code-keyword">To</span> <span class="code-digit">3</span>
+    <span class="code-keyword">If</span> xmin &gt; corners(i).X <span class="code-keyword">Then</span> xmin = corners(i).X
+    <span class="code-keyword">If</span> ymin &gt; corners(i).Y <span class="code-keyword">Then</span> ymin = corners(i).Y
+<span class="code-keyword">Next</span>
+
+<span class="code-keyword">For</span> i = <span class="code-digit">0</span> <span class="code-keyword">To</span> <span class="code-digit">3</span>
+    corners(i).X -= xmin
+    corners(i).Y -= ymin
+<span class="code-keyword">Next</span></pre>
+<p>Now we can actually output the rotated image, but first I create a region using a function to create it based on these corners.</p><pre lang="vbnet"><span class="code-keyword">Dim</span> bm_out <span class="code-keyword">As</span> <span class="code-keyword">New</span> Bitmap(<span class="code-keyword">CInt</span>(-2 * xmin), <span class="code-keyword">CInt</span>(-2 * ymin))
+<span class="code-keyword">Dim</span> bgr <span class="code-keyword">As</span> Graphics = Graphics.FromImage(bm_out)
+<span class="code-keyword">Dim</span> rg <span class="code-keyword">As</span> Region = CreateTransRegion(corners)
+<span class="code-keyword">Dim</span> tp <span class="code-keyword">As</span> Point = corners(<span class="code-digit">3</span>)
+<span class="code-keyword">ReDim</span> Preserve corners(<span class="code-digit">2</span>)
+bgr.DrawImage(bm_in, corners)</pre>
+<p>Now we have the rotated image in an output buffer, plus a region to allow transparency for the parts of the control that won't draw the image. Now comes the implementation of the <code>SizeMode</code>. For <code>StretchImage</code>, we'll need the width and height of the rotated image - this is easy as it's stored in the <code>corners</code> array at index 3 - and for stretching or centering we'll need a new region.</p><pre lang="vbnet"><span class="code-keyword">Dim</span> gr_out <span class="code-keyword">As</span> Graphics = pe.Graphics
+gr_out.FillRectangle(<span class="code-keyword">New</span> SolidBrush(<span class="code-keyword">Me</span>.BackColor), 0, 0, <span class="code-keyword">Me</span>.Width, <span class="code-keyword">Me</span>.Height)
+bm_in.MakeTransparent(_transColor)
+<span class="code-keyword">If</span> _sizemode = PictureBoxSizeMode.StretchImage <span class="code-keyword">Then</span>
+    <span class="code-keyword">Dim</span> maxW <span class="code-keyword">As</span> <span class="code-keyword">Integer</span> = tp.X
+    <span class="code-keyword">Dim</span> maxH <span class="code-keyword">As</span> <span class="code-keyword">Integer</span> = tp.Y
+    <span class="code-keyword">For</span> t <span class="code-keyword">As</span> <span class="code-keyword">Integer</span> = <span class="code-digit">0</span> <span class="code-keyword">To</span> <span class="code-digit">2</span>
+        <span class="code-keyword">If</span> maxW &lt; corners(t).X <span class="code-keyword">Then</span> maxW = corners(t).X
+        <span class="code-keyword">If</span> maxH &lt; corners(t).Y <span class="code-keyword">Then</span> maxH = corners(t).Y
+    <span class="code-keyword">Next</span>
+    <span class="code-comment">'</span><span class="code-comment">get hscale
+</span>
+    <span class="code-keyword">Dim</span> hscale <span class="code-keyword">As</span> <span class="code-keyword">Double</span> = <span class="code-keyword">Me</span>.Width / maxW
+    <span class="code-comment">'</span><span class="code-comment">get vscale
+</span>
+    <span class="code-keyword">Dim</span> vscale <span class="code-keyword">As</span> <span class="code-keyword">Double</span> = <span class="code-keyword">Me</span>.Height / maxH
+    <span class="code-comment">'</span><span class="code-comment">convert points
+</span>
+    corners(<span class="code-digit">0</span>) = <span class="code-keyword">New</span> Point(corners(<span class="code-digit">0</span>).X * hscale, corners(<span class="code-digit">0</span>).Y * vscale)
+    corners(<span class="code-digit">1</span>) = <span class="code-keyword">New</span> Point(corners(<span class="code-digit">1</span>).X * hscale, corners(<span class="code-digit">1</span>).Y * vscale)
+    corners(<span class="code-digit">2</span>) = <span class="code-keyword">New</span> Point(corners(<span class="code-digit">2</span>).X * hscale, corners(<span class="code-digit">2</span>).Y * vscale)
+    gr_out.DrawImage(bm_out, 0, 0, <span class="code-keyword">Me</span>.Width, <span class="code-keyword">Me</span>.Height)
+    <span class="code-keyword">Dim</span> np(<span class="code-digit">3</span>) <span class="code-keyword">As</span> Point
+    np(<span class="code-digit">0</span>) = corners(<span class="code-digit">0</span>)
+    np(<span class="code-digit">1</span>) = corners(<span class="code-digit">1</span>)
+    np(<span class="code-digit">2</span>) = corners(<span class="code-digit">2</span>)
+    np(<span class="code-digit">3</span>) = <span class="code-keyword">New</span> Point(tp.X * hscale, tp.Y * vscale)
+    rg = CreateTransRegion(np)</pre>
+<p>We don't need quite so much for centering the image.</p><pre lang="vbnet"><span class="code-keyword">ElseIf</span> _sizemode = PictureBoxSizeMode.CenterImage <span class="code-keyword">Then</span>
+    <span class="code-keyword">Dim</span> wadd <span class="code-keyword">As</span> <span class="code-keyword">Integer</span> = <span class="code-keyword">CInt</span>((<span class="code-keyword">Me</span>.Width / <span class="code-digit">2</span>) - (bm_out.Width / <span class="code-digit">2</span>))
+    <span class="code-keyword">Dim</span> hadd <span class="code-keyword">As</span> <span class="code-keyword">Integer</span> = <span class="code-keyword">CInt</span>((<span class="code-keyword">Me</span>.Height / <span class="code-digit">2</span>) - (bm_out.Height / <span class="code-digit">2</span>))
+    corners(<span class="code-digit">0</span>) = <span class="code-keyword">New</span> Point(corners(<span class="code-digit">0</span>).X + wadd, corners(<span class="code-digit">0</span>).Y + hadd)
+    corners(<span class="code-digit">1</span>) = <span class="code-keyword">New</span> Point(corners(<span class="code-digit">1</span>).X + wadd, corners(<span class="code-digit">1</span>).Y + hadd)
+    corners(<span class="code-digit">2</span>) = <span class="code-keyword">New</span> Point(corners(<span class="code-digit">2</span>).X + wadd, corners(<span class="code-digit">2</span>).Y + hadd)
+    gr_out.DrawImage(bm_in, corners)
+    <span class="code-keyword">Dim</span> np(<span class="code-digit">3</span>) <span class="code-keyword">As</span> Point
+    np(<span class="code-digit">0</span>) = corners(<span class="code-digit">0</span>)
+    np(<span class="code-digit">1</span>) = corners(<span class="code-digit">1</span>)
+    np(<span class="code-digit">2</span>) = corners(<span class="code-digit">2</span>)
+    np(<span class="code-digit">3</span>) = <span class="code-keyword">New</span> Point(tp.X + wadd, tp.Y + hadd)
+    rg = CreateTransRegion(np)</pre>
+<p>Any other size modes just get output to 0,0, so we don't need anything special there, except for <code>AutoSize</code> - which just changes the control's size to match the image.</p><pre lang="vbnet"><span class="code-keyword">Else</span>
+    gr_out.DrawImage(bm_in, corners)
+<span class="code-keyword">End</span> <span class="code-keyword">If</span>
+<span class="code-keyword">If</span> _sizemode = PictureBoxSizeMode.AutoSize <span class="code-keyword">Then</span>
+    <span class="code-keyword">MyBase</span>.Width = bm_out.Width
+    <span class="code-keyword">MyBase</span>.Height = bm_out.Height
+<span class="code-keyword">End</span> <span class="code-keyword">If</span></pre>
+<p>The last thing we take care of is the region (for transparency), but if the property <code>ShowThrough</code> is changed to <code lang="vbnet"><span class="code-keyword">False</span></code> then we need to make sure to get rid of any existing region.</p><pre lang="vbnet"><span class="code-keyword">Me</span>.Region = <span class="code-keyword">Nothing</span>
+<span class="code-keyword">If</span> _showThrough <span class="code-keyword">Then</span>
+    <span class="code-keyword">Me</span>.Region = rg
+<span class="code-keyword">End</span> <span class="code-keyword">If</span></pre>
+<p>And that's it! It is certainly possible to modify it to rotate around a point other than the center (although I haven't tried).</p>
+<h2>Suggestions/Bugs</h2>
+<p>If you want to send me any bugs/suggestions, please send them to <a href="mailto:codeproject@stdominion.net">codeproject@stdominion.net</a>.</p>
+
+
+
+
+
+
+						</div>
+						<!-- Article Text End -->
+
+						
+						
+						<h2>License</h2>
+						<div id="LicenseTerms"><p>This article has no explicit license attached to it but may contain usage terms in the article text or the download files themselves. If in doubt please contact the author via the discussion board below.</p><p>A list of licenses authors might use can be found <a href="http://www.codeproject.com/info/Licenses.aspx">here</a></p></div>
+						
+
+						
+						<h2 id="ctl00_AboutHeading">About the Author</h2>
+
+						<div class="float-right">
+						<div class="lqm_ad" width="300px" height="250px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="6" lqm_tags=".NET1.1,Win2K,WinXP,VS.NET2003,VB,GDI+,Dev,Intermediate"></div>
+						</div>
+
+						
+						
+   
+<table cellpadding="0" cellspacing="5" border="0">
+<tbody><tr valign="top">
+<td id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhotoTable" valign="top" style="width:155px;">
+	<b><a id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberProfileLink" href="http://www.codeproject.com/Members/Chris-Kolkman">Chris Kolkman</a></b><br><br>
+	<center></center>
+
+	<div class="small-text">
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberJobTitle">Software Developer</span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberCompany"></span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberLocation"><img src="./Rotating PictureBox Control - CodeProject_files/US.gif" alt="United States" width="16px" height="11px"> United States</span><br>
+		<br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberType">Member</span><br>
+		
+
+		
+	</div>
+</td>
+
+<td>
+	<br>	
+</td>
+</tr>
+</tbody></table><br>
+						
+						
+
+						<div class="clearfix"></div>
+
+						
+						<div id="ctl00_RateArticleRow" class="clearfix voting-bar">
+						<div class="column8_1" style="padding-top:8px"> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#_top">Article Top</a></div>
+						<div class="column8_7 align-right"><div id="ctl00_RateArticle_RateItemWrapper" class="container-rating small-text" name="RateItem_10216">
+
+	<table width="100%" cellpadding="0" cellspacing="0" small-text="">
+	<tbody><tr>
+		<td id="ctl00_RateArticle_VoteResultDiv" nowrap="nowrap" align="right" width="100%">
+			<span class="voteRes"></span>
+			<img class="loaderImg" width="16px" alt="loading..." height="16px" src="./Rotating PictureBox Control - CodeProject_files/ajax-loader.gif" style="display:none;"> 
+		</td>
+
+	
+		<td class="voteTbl" style="white-space:nowrap" align="right">
+			<table class="small-text">
+			<tbody><tr valign="middle">
+				
+				<td id="ctl00_RateArticle_RateText" style="padding-right:5px;white-space:nowrap">
+					<i><b>Rate this article for us!</b></i>
+				</td>
+
+				<td id="ctl00_RateArticle_StartForm" align="right" nowrap="nowrap">
+					<i>&nbsp;&nbsp;Poor</i>
+				</td>
+
+				<td id="ctl00_RateArticle_VoteFormDiv" style="white-space:nowrap" align="left">
+					<table id="ctl00_RateArticle_VoteRBL" class="radio" border="0">
+	<tbody><tr>
+		<td><input id="ctl00_RateArticle_VoteRBL_0" type="radio" name="ctl00$RateArticle$VoteRBL" value="1" onclick="ChkRtctl00_RateArticle(1, 10216);
+$(&#39;#ctl00_RateArticle_RCD&#39;).show();
+;"></td><td><input id="ctl00_RateArticle_VoteRBL_1" type="radio" name="ctl00$RateArticle$VoteRBL" value="2" onclick="ChkRtctl00_RateArticle(2, 10216);
+$(&#39;#ctl00_RateArticle_RCD&#39;).show();
+;"></td><td><input id="ctl00_RateArticle_VoteRBL_2" type="radio" name="ctl00$RateArticle$VoteRBL" value="3" onclick="ChkRtctl00_RateArticle(3, 10216);
+$(&#39;#ctl00_RateArticle_RCD&#39;).show();
+;"></td><td><input id="ctl00_RateArticle_VoteRBL_3" type="radio" name="ctl00$RateArticle$VoteRBL" value="4" onclick="ChkRtctl00_RateArticle(4, 10216);
+$(&#39;#ctl00_RateArticle_RCD&#39;).show();
+;"></td><td><input id="ctl00_RateArticle_VoteRBL_4" type="radio" name="ctl00$RateArticle$VoteRBL" value="5" onclick="ChkRtctl00_RateArticle(5, 10216);
+$(&#39;#ctl00_RateArticle_RCD&#39;).show();
+;"></td>
+	</tr>
+</tbody></table> 
+				</td>
+
+				<td id="ctl00_RateArticle_EndForm" align="left">
+					<i>Excellent</i>
+				</td>
+
+				<td id="ctl00_RateArticle_VoteBtn">	
+					<input type="submit" name="ctl00$RateArticle$SubmitRateBtn" value="Vote" onclick="return rateItem(10216,2,1,true,true,3);" id="ctl00_RateArticle_SubmitRateBtn" class="button">
+				</td>
+
+			</tr>
+			</tbody></table>
+			<span id="ctl00_RateArticle_ErrorMessage" class="error"></span>
+		</td>
+	</tr>
+	</tbody></table>
+	<div class="hover-container">
+		<div id="ctl00_RateArticle_RCD" class="rating-comment align-left float-right">
+			Add a reason or comment to your vote: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#" id="clear-rate_ctl00_RateArticle_RCD" title="close">x</a><br>
+			<textarea class="RateComment" rows="5" cols="60" style="width:98%;"></textarea>
+		</div>
+	</div>
+</div>
+</div>
+						</div>
+						
+
+					</form>
+
+					
+					<div style="margin:auto;padding:0px 10px;white-space:nowrap;overflow:hidden;width:460px;height:60px">		  
+						<div class="lqm_ad" width="468px" height="60px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="1" lqm_tags=".NET1.1,Win2K,WinXP,VS.NET2003,VB,GDI+,Dev,Intermediate"></div>
+					</div>
+					
+
+					
+					
+					<h2>Comments and Discussions</h2>
+					<a name="_comments"></a><!-- Forum Start -->
+<table id="ForumTable" class="box forum" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><table width="100%" border="0" cellpadding="3px" cellspacing="0">
+<tbody><tr class="forum-header1">
+<td style="white-space:nowrap;"><img src="./Rotating PictureBox Control - CodeProject_files/info-16.gif" alt="FAQ" style="border-width:0;width:16px;height:16px;vertical-align:middle;">&nbsp;<a href="http://www.codeproject.com/KB/FAQs/MessageBoardsFAQ.aspx"><b>FAQ</b></a>&nbsp;</td><td colspan="2" style="white-space:nowrap;text-align:right;"><form action="http://www.codeproject.com/script/Forums/Search.aspx?fid=0" method="get" style="margin:0;padding:0;">
+<input type="hidden" name="fid" value="175644"><input type="text" class="Frm_Input" name="kw">&nbsp;<input type="submit" value="Search" name="FrmSrch" class="button">
+</form></td>
+</tr><tr class="forum-header2">
+<td colspan="3" style="width:100%;"><div style="text-align:right;">
+<form action="http://www.codeproject.com/script/Forums/SetOptions.aspx?floc=%2fKB%2fcpp%2frimage.aspx&fid=175644" method="get" style="margin:0;padding:0;">
+<input type="hidden" name="fid" value="175644"><input type="hidden" name="currentQS" value="?floc=%2fKB%2fcpp%2frimage.aspx&amp;fid=175644"><input type="hidden" name="floc" value="/KB/cpp/rimage.aspx">Noise Tolerance<select size="1" class="Frm_DropDown" name="noise">
+<option value="1">Very High</option><option value="2">High</option><option selected="" value="3">Medium</option><option value="4">Low</option><option value="5">Very Low</option>
+</select>&nbsp;&nbsp;Layout<select size="1" class="Frm_DropDown" name="view">
+<option value="Quick">Normal</option><option value="Topic">Expand Posts only</option><option selected="" value="Expanded">Expand Posts &amp; Replies</option><option value="Thread">Thread View</option><option value="Normal">No Javascript</option><option value="Preview">No JS + Preview</option>
+</select>&nbsp;&nbsp;Per page<select size="1" class="Frm_DropDown" name="mpp">
+<option selected="" value="10">10</option><option value="25">25</option><option value="50">50</option>
+</select>&nbsp;&nbsp;&nbsp;<input type="submit" value="Update" name="SetOpt" class="button">
+</form>
+</div></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><a name="xx0xx"></a><table border="0" cellpadding="2px" cellspacing="0" width="100%">
+<tbody><tr class="forum-navbar">
+<td><img src="./Rotating PictureBox Control - CodeProject_files/forum_newmsg.gif" alt="new" width="16px" height="16px" border="0" align="top"><a href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&floc=/KB/cpp/rimage.aspx" class="toolbar" name="Frm_HoverNL" title="Create a new message thread" target="_top"><b>New Message</b></a></td><td>Msgs 1 to 10 of 28 (Total in Forum: 28) (<a href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644">Refresh</a>)</td><td style="text-align:right;white-space:nowrap;"><span class="toolbar">First</span><span class="toolbar">Prev</span><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&fr=11#xx0xx">Next</a></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="fixed-layout blank-background">
+<tbody><tr>
+<td><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="5px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="16px" class="Frm_MsgIndent"><a name="xx3260995xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container">Works great. [modified]<img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=4932077">emre2008</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">1:36 5 Nov '09 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:16px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="16px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Thanks <img src="./Rotating PictureBox Control - CodeProject_files/smiley_smile.gif" align="top" alt="Smile"> <br><br>**********<br>Hmmm, I was a bit early to say that it was working great. I had tried it in a new C# project and it was working fine. But then I tried to add it into one of my existing C# projects, unfortunately the namespace "Control" caused a problem. <br>Then I tried to convert it to C# with several 3rd party software but couldn't. I think we need an update... <br><br><div class="ForumMod">modified on Thursday, November 5, 2009 3:34 AM</div><br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=3260995&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=3260995&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=3260995" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3260995/Works-great-modified.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3260995&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF3260995" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(4932077,3260995,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx3260995xx" onclick="RateMsg(4932077, 3260995,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx3260995xx" title="vote this message a 1" onclick="RateMsg(4932077, 3260995, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx3260995xx" title="vote this message a 2" onclick="RateMsg(4932077, 3260995, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx3260995xx" title="vote this message a 3" onclick="RateMsg(4932077, 3260995, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx3260995xx" title="vote this message a 4" onclick="RateMsg(4932077, 3260995, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx3260995xx" title="vote this message a 5" onclick="RateMsg(4932077, 3260995, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx3260995xx" onclick="RateMsg(4932077, 3260995,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="root msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="16px" class="Frm_MsgIndent"><a name="xx2098791xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container">Rotating Picturebox Control<img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1112612">actpfd</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">11:42 25 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:16px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="16px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Chris,<br><br>Very useful code and control – thank you.<br><br>I have one question – how would you reset the picturebox to display its image in the original (first loaded) orientation?<br>I have tried setting rotation to zero but this leaves the image where it is, I have tried recording the current rotation and then tried to put the image back by setting the rotation to (360 – current value) but this does not seem to work either.<br><br>BTW: I am using the control to produce a slowly rotating image whilst a particular process is going on and then reset it when the process has completed.<br><br>Thanks in advance.<br><br> <br><br><div class="ForumSig">Peter F Diamond</div><br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2098791&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2098791&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2098791/Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2098791&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2098791" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1112612,2098791,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098791xx" onclick="RateMsg(1112612, 2098791,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098791xx" title="vote this message a 1" onclick="RateMsg(1112612, 2098791, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098791xx" title="vote this message a 2" onclick="RateMsg(1112612, 2098791, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098791xx" title="vote this message a 3" onclick="RateMsg(1112612, 2098791, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098791xx" title="vote this message a 4" onclick="RateMsg(1112612, 2098791, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098791xx" title="vote this message a 5" onclick="RateMsg(1112612, 2098791, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098791xx" onclick="RateMsg(1112612, 2098791,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="34px" class="Frm_MsgIndent"><a name="xx2098868xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2098868" href="http://www.codeproject.com/Messages/2098868/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1282106">Chris Kolkman</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">12:39 25 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:34px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="34px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Wow - it's been a while since I looked at this control.  I'm glad you like it.<br><br>Looking at the project again, it looks like its as simple as setting the Rotation property (appears to work for me).<br><br>I changed the rotation using the NumericUpDown on the form and then hit the button that was behind the RImage control which reset the Rotation to 45 <code>RImage1.Rotation = 45</code>, and it immediately changed back to that rotation.<br><br>I'm not certain why it is not working for you - perhaps it's not invalidating (causing a redraw of the control) properly and you could try calling that after resetting the rotation (or Refresh). <br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2098868&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2098868&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2098868/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2098868&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2098868" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1282106,2098868,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098868xx" onclick="RateMsg(1282106, 2098868,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098868xx" title="vote this message a 1" onclick="RateMsg(1282106, 2098868, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098868xx" title="vote this message a 2" onclick="RateMsg(1282106, 2098868, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098868xx" title="vote this message a 3" onclick="RateMsg(1282106, 2098868, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098868xx" title="vote this message a 4" onclick="RateMsg(1282106, 2098868, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098868xx" title="vote this message a 5" onclick="RateMsg(1282106, 2098868, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2098868xx" onclick="RateMsg(1282106, 2098868,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="52px" class="Frm_MsgIndent"><a name="xx2099862xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2099862" href="http://www.codeproject.com/Messages/2099862/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1112612">actpfd</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">4:28 26 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:52px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="52px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Chris,<br><br>When i try to reset the image, I have tried the following :-<br><br>1. set the rotation value to 0 (the as loaded value)<br><br>OR<br><br>2. hold the value of the current rotation and then reset by setting RImage1.rotation = 360 - currentRotationvalue<br><br>Both of these leave the image at it's last position.<br><br>I have added a refresh after both of these methods but same result.<br><br>Regards<br>Peter <br><br><div class="ForumSig">Peter F Diamond</div><br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2099862&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2099862&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2099862/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2099862&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2099862" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1112612,2099862,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2099862xx" onclick="RateMsg(1112612, 2099862,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2099862xx" title="vote this message a 1" onclick="RateMsg(1112612, 2099862, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2099862xx" title="vote this message a 2" onclick="RateMsg(1112612, 2099862, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2099862xx" title="vote this message a 3" onclick="RateMsg(1112612, 2099862, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2099862xx" title="vote this message a 4" onclick="RateMsg(1112612, 2099862, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2099862xx" title="vote this message a 5" onclick="RateMsg(1112612, 2099862, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2099862xx" onclick="RateMsg(1112612, 2099862,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="70px" class="Frm_MsgIndent"><a name="xx2100418xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2100418" href="http://www.codeproject.com/Messages/2100418/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1282106">Chris Kolkman</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">9:10 26 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:70px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="70px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">That seems really weird.<br><br>I would assume that in order to rotate the image during your running process that you are doing it by changing the Rotation value.<br><br>I'm not sure how you are doing it, but here is how I would do it (assuming a starting rotation of 0 degrees):<br><pre lang="vbnet"><span class="code-keyword">Private</span> bRunning <span class="code-keyword">As</span> <span class="code-keyword">Boolean</span> = <span class="code-keyword">False</span><br><span class="code-keyword">Private</span> <span class="code-keyword">Sub</span> StartProcess()<br>    bRunning = <span class="code-keyword">True</span><br>    <span class="code-keyword">Dim</span> thd <span class="code-keyword">As</span> <span class="code-keyword">New</span> Threading.Thread(<span class="code-keyword">AddressOf</span> DoProcess)<br>    thd.Start()<br>    DoAnimation()<br>    <span class="code-comment">'</span><span class="code-comment"> Another possiblity, but one that might cause thread-safe issues is<br></span>    <span class="code-comment">'</span><span class="code-comment"> Dim thdAnim As New Threading.Thread(AddressOf DoAnimation)<br></span>    <span class="code-comment">'</span><span class="code-comment"> thdAnim.Start()<br></span><span class="code-keyword">End</span> <span class="code-keyword">Sub</span><br><br><span class="code-comment">'</span><span class="code-comment">Animation Thread<br></span><span class="code-keyword">Private</span> <span class="code-keyword">Sub</span> DoAnimation()<br>    <span class="code-keyword">While</span> bRunning<br>        RImage1.Rotation += <span class="code-digit">10</span><br>        Threading.Thread.Sleep(<span class="code-digit">500</span>)<br>    <span class="code-keyword">End</span> <span class="code-keyword">While</span><br>    RImage1.Rotation = <span class="code-digit">0</span><br><span class="code-keyword">End</span> <span class="code-keyword">Sub</span><br><br><span class="code-comment">'</span><span class="code-comment">Process Thread<br></span><span class="code-keyword">Private</span> <span class="code-keyword">Sub</span> DoProcess()<br>    <span class="code-comment">'</span><span class="code-comment">Do everything you need here<br></span>    <span class="code-comment">'</span><span class="code-comment">setting bRunning to false should be the last thing<br></span>    <span class="code-comment">'</span><span class="code-comment">this thread does.<br></span>    bRunning = <span class="code-keyword">False</span><br><span class="code-keyword">End</span> <span class="code-keyword">Sub</span><br></pre> <br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100418&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100418&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2100418/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2100418&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2100418" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1282106,2100418,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100418xx" onclick="RateMsg(1282106, 2100418,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100418xx" title="vote this message a 1" onclick="RateMsg(1282106, 2100418, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100418xx" title="vote this message a 2" onclick="RateMsg(1282106, 2100418, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100418xx" title="vote this message a 3" onclick="RateMsg(1282106, 2100418, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100418xx" title="vote this message a 4" onclick="RateMsg(1282106, 2100418, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100418xx" title="vote this message a 5" onclick="RateMsg(1282106, 2100418, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100418xx" onclick="RateMsg(1282106, 2100418,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="88px" class="Frm_MsgIndent"><a name="xx2100475xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2100475" href="http://www.codeproject.com/Messages/2100475/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1112612">actpfd</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">9:33 26 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:88px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="88px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi Chris,<br><br>Being a simple fellow I did the following to test - perhaps you can tell me whether it should work?<br><br>This is in the timer tick. g.processing gets set when a process starts and reset when it finishes.<br><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; If G.Processing Then<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Dim tmp As Integer<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; G.RotationValue += 1<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; tmp = G.RotationValue Mod 360<br><br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Me.RImage1.Rotation = tmp<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; G.Processing_AK = False<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Else<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; If Not G.Processing_AK Then<br>&nbsp;&nbsp; 'either&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Me.RImage1.Rotation = 360 - G.RotationValue<br>&nbsp;&nbsp; 'or&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  Me.RImage1.Rotation = 0 <br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  G.RotationValue = 0<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;  G.Processing_AK = True<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; Me.RImage1.Refresh()<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; End If<br>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; End If<br><br><br> <br><br>Peter F Diamond<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100475&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100475&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2100475/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2100475&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2100475" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1112612,2100475,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100475xx" onclick="RateMsg(1112612, 2100475,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100475xx" title="vote this message a 1" onclick="RateMsg(1112612, 2100475, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100475xx" title="vote this message a 2" onclick="RateMsg(1112612, 2100475, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100475xx" title="vote this message a 3" onclick="RateMsg(1112612, 2100475, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100475xx" title="vote this message a 4" onclick="RateMsg(1112612, 2100475, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100475xx" title="vote this message a 5" onclick="RateMsg(1112612, 2100475, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100475xx" onclick="RateMsg(1112612, 2100475,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="106px" class="Frm_MsgIndent"><a name="xx2100508xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2100508" href="http://www.codeproject.com/Messages/2100508/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1282106">Chris Kolkman</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">9:46 26 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:106px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="106px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">I'm going to assume that the else statement here runs when the process finishes, and the first part runs while the process is running thus rotating the image (<code>Me.RImage1.Rotation = tmp</code>).<br><br>Setting the Rotation property to 0 SHOULD work so I would go with the following code:<br><pre><span class="code-keyword">If</span> G.Processing <span class="code-keyword">Then</span><br>    <span class="code-keyword">Dim</span> tmp <span class="code-keyword">As</span> <span class="code-keyword">Integer</span><br>    G.RotationValue += <span class="code-digit">1</span><br>    tmp = G.RotationValue <span class="code-keyword">Mod</span> <span class="code-digit">360</span><br>    <span class="code-keyword">Me</span>.RImage1.Rotation = tmp<br>    G.Processing_AK = <span class="code-keyword">False</span><br><span class="code-keyword">Else</span><br>    <span class="code-keyword">If</span> <span class="code-keyword">Not</span> G.Processing_AK <span class="code-keyword">Then</span><br>        <span class="code-keyword">Me</span>.RImage1.Rotation = <span class="code-digit">0</span> <br>        G.RotationValue = <span class="code-digit">0</span><br>        G.Processing_AK = <span class="code-keyword">True</span><br>        <span class="code-keyword">Me</span>.RImage1.Refresh()<br>        <span class="code-comment">'</span><span class="code-comment">Another possibility is (instead of Refresh)<br></span>        <span class="code-comment">'</span><span class="code-comment"> Me.RImage1.Invalidate()<br></span>    <span class="code-keyword">End</span> <span class="code-keyword">If</span><br><span class="code-keyword">End</span> <span class="code-keyword">If</span><br></pre>
+In all technicalities you shouldn't need the Refresh() or Invalidate() calls as setting the Rotation value is supposed to do that for you.<br><br>Have you confirmed that the program enters the nested IF statement I'm seeing here? <br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100508&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100508&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2100508/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2100508&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2100508" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1282106,2100508,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100508xx" onclick="RateMsg(1282106, 2100508,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100508xx" title="vote this message a 1" onclick="RateMsg(1282106, 2100508, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100508xx" title="vote this message a 2" onclick="RateMsg(1282106, 2100508, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100508xx" title="vote this message a 3" onclick="RateMsg(1282106, 2100508, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100508xx" title="vote this message a 4" onclick="RateMsg(1282106, 2100508, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100508xx" title="vote this message a 5" onclick="RateMsg(1282106, 2100508, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100508xx" onclick="RateMsg(1282106, 2100508,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="116px" class="Frm_MsgIndent"><a name="xx2100533xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2100533" href="http://www.codeproject.com/Messages/2100533/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1112612">actpfd</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">9:59 26 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:116px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="116px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi Chris,<br><br>I could not see any difference with your code but copied it in place of current - still the same.<br>I tried with invalidate and still the same.<br>Yes I have stepped through the code and it is going to all the expected lines (dependent upon the "processing" logic).<br><br>I am concious that I am taking up your time and it is some time ago since you put this together.<br><br>Do not feel that you have to put time into this - I am however grateful for any advice.<br><br>Regards. <br><br>Peter F Diamond<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100533&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100533&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2100533/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2100533&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2100533" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1112612,2100533,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100533xx" onclick="RateMsg(1112612, 2100533,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100533xx" title="vote this message a 1" onclick="RateMsg(1112612, 2100533, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100533xx" title="vote this message a 2" onclick="RateMsg(1112612, 2100533, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100533xx" title="vote this message a 3" onclick="RateMsg(1112612, 2100533, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100533xx" title="vote this message a 4" onclick="RateMsg(1112612, 2100533, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100533xx" title="vote this message a 5" onclick="RateMsg(1112612, 2100533, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100533xx" onclick="RateMsg(1112612, 2100533,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="126px" class="Frm_MsgIndent"><a name="xx2100567xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2100567" href="http://www.codeproject.com/Messages/2100567/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1282106">Chris Kolkman</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">10:22 26 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:126px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="126px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Don't worry about it - I actually enjoy helping others out (even if I'm unable to solve the problem).<br><br>From what I can see you are doing everything correct, and it should be working but for some reason it isn't.<br><br>Doing a quick search I found another option for rotating images:<br><a href="http://www.codeproject.com/csharp/rotateimage.asp">http://www.codeproject.com/csharp/rotateimage.asp</a>[<a href="http://www.codeproject.com/csharp/rotateimage.asp" target="_blank" title="New Window">^</a>]  The only downside (not really a downside for me, but for someone who may not be able to understand it - possibly) is its in C# and it's not a DLL you download but the source code (demo app is just an EXE), which means it would have to be translated.  With this particular solution, you can use a regular PictureBox and assign it an image generated from a rotation function.  It may give you the result you are looking for. <br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100567&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100567&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2100567/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2100567&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2100567" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1282106,2100567,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100567xx" onclick="RateMsg(1282106, 2100567,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100567xx" title="vote this message a 1" onclick="RateMsg(1282106, 2100567, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100567xx" title="vote this message a 2" onclick="RateMsg(1282106, 2100567, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100567xx" title="vote this message a 3" onclick="RateMsg(1282106, 2100567, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100567xx" title="vote this message a 4" onclick="RateMsg(1282106, 2100567, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100567xx" title="vote this message a 5" onclick="RateMsg(1282106, 2100567, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100567xx" onclick="RateMsg(1282106, 2100567,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="136px" class="Frm_MsgIndent"><a name="xx2100628xx"></a><img height="16px" width="16px" align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2100628" href="http://www.codeproject.com/Messages/2100628/Re-Rotating-Picturebox-Control.aspx">Re: Rotating Picturebox Control</a><img src="./Rotating PictureBox Control - CodeProject_files/New.gif" width="31px" height="12px" alt="new"></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Rotating PictureBox Control - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1112612">actpfd</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">10:53 26 Jun '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:136px;"><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" height="1px" width="136px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Thanks Chris,<br><br>I will have a look at the link and try from there.<br>Thanks again. <br><br>Peter F Diamond<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100628&floc=/KB/cpp/rimage.aspx&action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=175644&select=2100628&floc=/KB/cpp/rimage.aspx&action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&tid=2098791" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2100628/Re-Rotating-Picturebox-Control.aspx" title="Get permanent link">Link</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=2100628&obtid=3&action=AddBookmark&bio=false" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2100628" style="white-space:nowrap;"><script type="text/javascript">
+MsgVFrm(1112612,2100628,false,"","","");
+</script>Rate this message: <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100628xx" onclick="RateMsg(1112612, 2100628,1,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_down.gif" alt="vote 1" border="0" align="middle"></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100628xx" title="vote this message a 1" onclick="RateMsg(1112612, 2100628, 1,0)"><b>1</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100628xx" title="vote this message a 2" onclick="RateMsg(1112612, 2100628, 2,0)"><b>2</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100628xx" title="vote this message a 3" onclick="RateMsg(1112612, 2100628, 3,0)"><b>3</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100628xx" title="vote this message a 4" onclick="RateMsg(1112612, 2100628, 4,0)"><b>4</b></a> <a class="toolbar" href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100628xx" title="vote this message a 5" onclick="RateMsg(1112612, 2100628, 5,0)"><b>5</b></a> <a href="http://www.codeproject.com/KB/cpp/rimage.aspx#xx2100628xx" onclick="RateMsg(1112612, 2100628,5,0);"><img height="14px" width="14px" src="./Rotating PictureBox Control - CodeProject_files/thumbs_up.gif" border="0" alt="vote 5" align="middle"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><img src="./Rotating PictureBox Control - CodeProject_files/t(1).gif" border="0" width="1px" height="5px" alt=""></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><table width="100%" cellpadding="2px" cellspacing="0">
+<tbody><tr class="forum-footer">
+<td>Last Visit: 0:00 1 Jan '00  &nbsp; &nbsp; Last Update: 6:40 25 Feb '11 </td><td style="text-align:right;white-space:nowrap;"><input id="_mbnUrl" type="hidden" value="/KB/cpp/rimage.aspx?fid=175644&amp;fr=11"><b>1</b><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&fr=11#xx0xx">2</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&fr=21#xx0xx">3</a> <a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/cpp/rimage.aspx?fid=175644&fr=11#xx0xx">Next »</a></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table><p class="small-text"><img align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_general.gif" width="16px" height="16px" alt="General"> General &nbsp;&nbsp; <img align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_news.gif" width="16px" height="16px" alt="News"> News &nbsp;&nbsp; <img align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_question.gif" width="16px" height="16px" alt="Question"> Question &nbsp;&nbsp; <img align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_answer.gif" width="16px" height="16px" alt="Answer"> Answer &nbsp;&nbsp; <img align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_joke.gif" width="16px" height="16px" alt="Joke"> Joke &nbsp;&nbsp; <img align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_rant.gif" width="16px" height="16px" alt="Rant"> Rant &nbsp;&nbsp; <img align="top" src="./Rotating PictureBox Control - CodeProject_files/msg_admin.gif" width="16px" height="16px" alt="Admin"> Admin &nbsp;&nbsp; </p>
+<!-- Forum End -->
+
+
+
+
+					
+					<div class="theme1-background" style="height:2px"></div>
+
+					<div class="extended tiny-text">
+						<div class="row" style="margin:auto;">
+							<div class="float-left">
+								<a id="ctl00_PermaLink" href="./Rotating PictureBox Control - CodeProject_files/Rotating PictureBox Control - CodeProject.htm">link</a> | 
+								<a id="ctl00_PrivacyLink" href="http://www.codeproject.com/info/privacy.aspx">Privacy</a> |
+								<a id="ctl00_TermsOfUseLink" href="http://www.codeproject.com/info/TermsOfUse.aspx">Terms of Use</a> |
+								<a id="ctl00_Mobile" href="http://www.codeproject.com/KB/cpp/rimage.aspx?display=Mobile">Mobile</a>
+								<br>Last Updated: 29 Jul 2005<br>
+								<br>
+							</div>
+							<div class="float-right align-right">
+								Copyright 2005 by Chris Kolkman<br>Everything else
+								Copyright © <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2011 <br>
+								Web22 |
+								<a id="ctl00_AdvertiseLink" href="http://www.codeproject.com/info/MediaKit.aspx">Advertise on the Code Project </a>
+							</div>
+						</div>
+					</div>
+					
+
+				
+				</div>
+
+				<div id="ctl00_ContentSide" class="text-sidebar">
+
+					<script type="text/javascript">document.write(unescape('%0d%0a%3cdiv class%3d%22announce%22%3e%0d%0a%0d%0a%3cdiv class%3d%22announce-content%22%3e%09%0d%0a%0d%0a%0d%0a%3cdiv class%3d%22container-adwords%22%3e%0d%0a%09%3ca id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Link%22 href%3d%22%2fscript%2fCatalog%2fRedir.aspx%3fctid%3d2522%26amp%3bcttype%3d2%22 target%3d%22_blank%22%3e%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Title%22 class%3d%22title%22%3eGet 6 Months Free ASP.NET 4.0 with WebMatrix Ready Hosting!%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Teaser%22 title%3d%22DiscountASP.NET is a Microsoft Windows-based shared web hosting service provider. Our mission is to deliver the Best Value in advanced ASP.NET web hosting.%22 class%3d%22desc%22%3eDiscountASP.NET is a Microsoft Windows-based...%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Url%22 class%3d%22link%22%3ewww.discountasp.net%3c%2fspan%3e%3c%2fa%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%3cdiv class%3d%22container-adwords%22%3e%0d%0a%09%3ca id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Link%22 href%3d%22%2fscript%2fCatalog%2fRedir.aspx%3fctid%3d2681%26amp%3bcttype%3d2%22 target%3d%22_blank%22%3e%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Title%22 class%3d%22title%22%3eData Dynamics Reports for Windows Forms%2c ASP.NET%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Teaser%22 title%3d%22Data Dynamics Reports for Business Reporting in .NET by GrapeCity%2c with business intelligence%2c business dashboards%2c and key performance indicators (KPI)%2c Microsoft Excel integration and uses Microsoft SQL Server Reporting (RDL) format%2c all integrated with Microsoft Visual Studio .NET.%22 class%3d%22desc%22%3eData Dynamics Reports for Business Reporting...%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Url%22 class%3d%22link%22%3ewww.gcpowertools.com%3c%2fspan%3e%3c%2fa%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%3cdiv class%3d%22container-adwords%22%3e%0d%0a%09%3ca id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Link%22 href%3d%22%2fscript%2fCatalog%2fRedir.aspx%3fctid%3d2967%26amp%3bcttype%3d2%22 target%3d%22_blank%22%3e%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Title%22 class%3d%22title%22%3eSpread for COM%2fActiveX%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Teaser%22 title%3d%22FarPoint Spread for COM%2fActiveX by GrapeCity is an Award-winning%2c World%26%2339%3bs Best Selling Microsoft Excel Compatible SpreadSheet Component for COM%2fActiveX with powerful features and near unlimited customization with support for native Excel export%2fimport%2c event based coding and built-in calculation e%22 class%3d%22desc%22%3eFarPoint Spread for COM%2fActiveX by GrapeCity...%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Url%22 class%3d%22link%22%3ewww.gcpowertools.com%3c%2fspan%3e%3c%2fa%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%0d%0a%3c%2fdiv%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%0d%0a'));</script>
+<div class="announce">
+
+<div class="announce-content">	
+
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=2522&cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Title" class="title">Get 6 Months Free ASP.NET 4.0 with WebMatrix Ready Hosting!</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Teaser" title="DiscountASP.NET is a Microsoft Windows-based shared web hosting service provider. Our mission is to deliver the Best Value in advanced ASP.NET web hosting." class="desc">DiscountASP.NET is a Microsoft Windows-based...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Url" class="link">www.discountasp.net</span></a>
+</div>
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=2681&cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Title" class="title">Data Dynamics Reports for Windows Forms, ASP.NET</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Teaser" title="Data Dynamics Reports for Business Reporting in .NET by GrapeCity, with business intelligence, business dashboards, and key performance indicators (KPI), Microsoft Excel integration and uses Microsoft SQL Server Reporting (RDL) format, all integrated with Microsoft Visual Studio .NET." class="desc">Data Dynamics Reports for Business Reporting...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Url" class="link">www.gcpowertools.com</span></a>
+</div>
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=2967&cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Title" class="title">Spread for COM/ActiveX</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Teaser" title="FarPoint Spread for COM/ActiveX by GrapeCity is an Award-winning, World&#39;s Best Selling Microsoft Excel Compatible SpreadSheet Component for COM/ActiveX with powerful features and near unlimited customization with support for native Excel export/import, event based coding and built-in calculation e" class="desc">FarPoint Spread for COM/ActiveX by GrapeCity...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Url" class="link">www.gcpowertools.com</span></a>
+</div>
+
+
+</div>
+</div>
+
+
+
+
+					
+
+					
+
+					
+<div class="announce">
+<div class="announce-header">See Also...</div>
+<div class="announce-content">	
+
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl00_TitleLink" class="title" href="http://www.codeproject.com/KB/graphics/rotateimage.aspx">Image Rotation in .NET</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl00_Teaser" class="desc">Rotates an image without having to worry about...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl01_TitleLink" class="title" href="http://www.codeproject.com/KB/GDI-plus/matrix_transformation.aspx">Matrix Transformation of Images in C#, using .NET GDI+</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl01_Teaser" class="desc">Use of GDI+ Matrix class to perform image...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl02_TitleLink" class="title" href="http://www.codeproject.com/KB/graphics/PictureBoxZoom.aspx">PictureBox Zoom</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl02_Teaser" class="desc">This article will show you how to create two...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl03_TitleLink" class="title" href="http://www.codeproject.com/KB/linq/ScrollablePicturebox.aspx">C# Scrollable Picturebox Custom Control</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl03_Teaser" class="desc">This article discusses the construction of a...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl04_TitleLink" class="title" href="http://www.codeproject.com/KB/graphics/RotatePictureBox.aspx">C# Image/PictureBox Rotations</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl04_Teaser" class="desc">How to rotate any image from the center of...</span><br>
+</div>
+
+</div>
+</div>
+
+
+
+
+					
+
+<div class="announce ">
+<div class="announce-header">Announcements</div>
+<div class="announce-content">
+<table cellpadding="2">
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="middle"><td><img id="ctl00_Announcements_News_ctl00_Img" src="./Rotating PictureBox Control - CodeProject_files/14362.png" alt="News" align="middle" style="height:24px;width:24px;border-width:0px;"></td>
+<td><a id="ctl00_Announcements_News_ctl00_Link" href="http://www.codeproject.com/Competitions/460/Windows-Azure-Marketplace-The-DataMarket-Contest.aspx">Build Azure App - Win a Laptop</a></td></tr>
+
+<tr valign="middle"><td><img id="ctl00_Announcements_News_ctl01_Img" src="./Rotating PictureBox Control - CodeProject_files/13673.jpg" alt="News" align="middle" style="height:24px;width:24px;border-width:0px;"></td>
+<td><a id="ctl00_Announcements_News_ctl01_Link" href="http://www.codeproject.com/Competitions/447/Windows-Phone-7-Competition.aspx">WP7 Comp - Post an Article, Share an App</a></td></tr>
+
+
+
+
+</tbody></table>
+</div>
+</div>
+
+					
+<div class="announce">
+<div class="announce-header">The Daily Insider</div>
+<div class="announce-content">
+
+<div><a id="ctl00_News_News_ctl01_Link" href="http://citizen428.net/archives/434">30 free programming books</a></div>
+
+Daily News: <a id="ctl00_News_News_ctl02_Subscribe" href="http://www.codeproject.com/Feature/Insider/">Signup now</a>.
+</div>
+</div>
+		
+
+					<div style="margin:auto;width:150px"><div class="lqm_ad" width="150px" height="80px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="21" lqm_tags=".NET1.1,Win2K,WinXP,VS.NET2003,VB,GDI+,Dev,Intermediate"></div>
+					</div>
+	
+					<div style="margin:auto;width:160px;margin-top:10px"><div class="lqm_ad" width="160px" height="600px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="18" lqm_tags=".NET1.1,Win2K,WinXP,VS.NET2003,VB,GDI+,Dev,Intermediate"></div>
+					</div>
+				</div>
+
+			</div>
+			
+
+		</div>
+		
+
+	</div>
+</div>
+
+
+<script type="text/javascript" language="Javascript" src="./Rotating PictureBox Control - CodeProject_files/jquery-1.4.2.min.js"></script></body></html>

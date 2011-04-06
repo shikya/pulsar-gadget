@@ -1,0 +1,7 @@
+C:\Users\SHIKU\Downloads\rimage_demo\ImageRotate\Control\bin\RImage.dll
+C:\Users\SHIKU\Downloads\rimage_demo\ImageRotate\Control\bin\RImage.pdb
+C:\Users\SHIKU\Downloads\rimage_demo\ImageRotate\Control\bin\RImage.xml
+C:\Users\SHIKU\Downloads\rimage_demo\ImageRotate\Control\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\SHIKU\Downloads\rimage_demo\ImageRotate\Control\obj\Debug\RImage.dll
+C:\Users\SHIKU\Downloads\rimage_demo\ImageRotate\Control\obj\Debug\RImage.xml
+C:\Users\SHIKU\Downloads\rimage_demo\ImageRotate\Control\obj\Debug\RImage.pdb
