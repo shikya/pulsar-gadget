@@ -1,9 +1,15 @@
-# pulsar-gadget
+# Pulsar Gadget
 
 ![image](https://raw.githubusercontent.com/shikya/pulsar-gadget/master/PULSAR%20GADGET/PULSAR%20GADGET/Gadget_files/Capture.JPG "Final Output")
 
 This is my first finished project.
+
 Project is to have a RAM and CPU meter display on the desktop.
+
+## Timeline
+
+* Start: 23 Feb 2011
+* End: 07 April 2011
 
 ## Motivation
 
@@ -28,4 +34,13 @@ Project is to have a RAM and CPU meter display on the desktop.
 
 * Visual Studio 2008
 
+## Folder Structure
 
+| Path        | Description           |
+| ------------- | ------------- |
+| Control | VB Plugin to rotate the image |
+| PULSAR GADGET | Orignal Source Code |
+| pulsur meter images | Draft files |
+| saved documents | Documentation from code project |
+| index.html | Compatible featues list compiled at that time |
+| README.md | this |
